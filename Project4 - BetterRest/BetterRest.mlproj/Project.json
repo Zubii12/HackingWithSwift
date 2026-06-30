@@ -1,0 +1,29 @@
+{
+  "activityEntities" : [
+    "projectCreated",
+    [
+      {
+        "createdDate" : "2026-06-30T15:11:56Z",
+        "event" : "projectCreated",
+        "id" : "10D6B947-F9AB-43CE-B017-4EDAB1533E6F",
+        "subtitle" : "BetterRest",
+        "title" : "Project Created"
+      }
+    ]
+  ],
+  "authorName" : "Ionut Zubascu",
+  "createdDate" : "2026-06-30T15:11:56Z",
+  "description" : "",
+  "id" : "8E965CBB-8CBC-46F5-9BEB-E0E01C4A5FA6",
+  "license" : "",
+  "location" : "",
+  "modifiedDate" : "2026-06-30T15:11:56Z",
+  "projectName" : "BetterRest",
+  "settingsEntity" : {
+    "snapshotOnExtendTraining" : true,
+    "snapshotOnResumeTraining" : false
+  },
+  "taskType" : "generalClassifier",
+  "title" : "Tabular Classification",
+  "version" : "1.1"
+}

@@ -1,0 +1,41 @@
+{
+  "activityEntities" : [
+    "dataSourceTrainingStarted",
+    [
+      {
+        "createdDate" : "2026-06-30T15:16:59Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "DB9F34C0-01E7-426B-A725-78A6DE10BEDF",
+        "subtitle" : "BetterRest 1",
+        "title" : "Used By"
+      }
+    ],
+    "dataSourceMetrics",
+    [
+      {
+        "createdDate" : "2026-06-30T15:16:59Z",
+        "event" : "dataSourceMetrics",
+        "id" : "B1D38C92-F836-44CD-BABF-DB921B0FAD06",
+        "subtitle" : "7.262 Classes, 10.000 Items",
+        "title" : "Data Summary"
+      }
+    ]
+  ],
+  "createdDate" : "2026-06-30T15:13:05Z",
+  "dataPathRelativeToProjectURL" : "../BetterRest.csv/",
+  "dataResult" : {
+    "createdDate" : "2026-06-30T15:13:05Z",
+    "dataSourceID" : "45B89E91-69D8-4568-AE66-C1B39AEA96ED",
+    "dataURL" : "file:///Users/zubii/Projects/HackingWithSwift/Project4%20-%20BetterRest/BetterRest.csv"
+  },
+  "dataURL" : "file:///Users/zubii/Projects/HackingWithSwift/Project4%20-%20BetterRest/BetterRest.csv",
+  "experimentIDs" : [
+    "B354FDA7-8449-452C-994E-6C7C231631F1"
+  ],
+  "id" : "45B89E91-69D8-4568-AE66-C1B39AEA96ED",
+  "modifiedDate" : "2026-06-30T15:16:59Z",
+  "pathType" : 0,
+  "preferredFilename" : "BetterRest.csv",
+  "title" : "BetterRest.csv",
+  "version" : "1.0"
+}

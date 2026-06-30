@@ -151,6 +151,13 @@ struct ContentView: View {
             } message: {
                 Text(errorMessage)
             }
+            .toolbar {
+                Button(
+                    "Reset",
+                    systemImage: "arrow.clockwise",
+                    action: startGame
+                )
+            }
         }
     }
 }

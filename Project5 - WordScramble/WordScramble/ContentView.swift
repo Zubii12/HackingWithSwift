@@ -19,6 +19,8 @@ struct ContentView: View {
     var score: Int { usedWords.reduce(0) { $0 + $1.count } }
 
     func startGame() {
+        newWord = ""
+
         if let startWorldsUrl = Bundle.main.url(
             forResource: "start",
             withExtension: "txt"

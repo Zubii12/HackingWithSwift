@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
 
+    var score: Int { usedWords.reduce(0) { $0 + $1.count } }
+
     func startGame() {
         if let startWorldsUrl = Bundle.main.url(
             forResource: "start",
@@ -130,6 +132,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
+                Text("Score: \(score)")
+                    .font(.headline)
+
                 Section {
                     TextField("Enter your word", text: $newWord)
                         .textInputAutocapitalization(.never)

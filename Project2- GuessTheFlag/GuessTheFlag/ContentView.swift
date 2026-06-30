@@ -19,10 +19,17 @@ struct ContentView: View {
     @State private var showGameEnded = false
     
     @State private var flagRotation = [0.0, 0.0, 0.0]
+    @State private var flagOpacity = [1.0, 1.0, 1.0]
     
     func flagTapped(_ number: Int) {
         withAnimation {
             flagRotation[number] += 360
+        }
+        
+        withAnimation {
+            for i in 0..<3 {
+                flagOpacity[i] = (i == number) ? 1.0 : 0.25
+            }
         }
         
         if number == correctAnswer {
@@ -52,6 +59,7 @@ struct ContentView: View {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         flagRotation = [0.0, 0.0, 0.0]
+        flagOpacity = [1.0, 1.0, 1.0]
     }
     
     func reset() {
@@ -61,6 +69,7 @@ struct ContentView: View {
         questionsCount = 0
         showGameEnded = false
         flagRotation = [0.0, 0.0, 0.0]
+        flagOpacity = [1.0, 1.0, 1.0]
     }
     
     var body: some View {
@@ -95,6 +104,7 @@ struct ContentView: View {
                         } label: {
                             FlagImage(countries[number])
                                 .rotation3DEffect(.degrees(flagRotation[number]), axis: (x: 0, y: 1, z: 0))
+                                .opacity(flagOpacity[number])
                         }
                     }
                 }

@@ -43,6 +43,20 @@ struct ContentView: View {
 
         guard answer.count > 0 else { return }
 
+        guard answer.count > 2 else {
+            return wordError(
+                title: "Word too short",
+                message: "You need to use at least 3 letters."
+            )
+        }
+
+        guard isDuplicate(word: answer) else {
+            return wordError(
+                title: "Duplicate word",
+                message: "You can't use the same word twice!"
+            )
+        }
+
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original")
             return
@@ -101,6 +115,10 @@ struct ContentView: View {
         )
 
         return misspelledRange.location == NSNotFound
+    }
+
+    func isDuplicate(word: String) -> Bool {
+        return word != rootWord
     }
 
     func wordError(title: String, message: String) {

@@ -38,11 +38,11 @@ struct ContentView: View {
     @State private var showingAddExpense = false
 
     var personalItems: [ExpenseItem] {
-        expenses.items.filter { $0.type == "Personal" }
+        expenses.items.filter { $0.type == .personal }
     }
 
     var businessItems: [ExpenseItem] {
-        expenses.items.filter { $0.type == "Business" }
+        expenses.items.filter { $0.type == .business }
     }
 
     func removePersonalItems(at offsets: IndexSet) {

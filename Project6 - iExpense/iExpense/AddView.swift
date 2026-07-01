@@ -15,7 +15,7 @@ struct AddView: View {
     @State private var amount = 0.0
 
     let types = ["Business", "Personal"]
-    
+
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -32,7 +32,9 @@ struct AddView: View {
                 TextField(
                     "Amount",
                     value: $amount,
-                    format: .currency(code: "USD")
+                    format: .currency(
+                        code: Locale.current.currency?.identifier ?? "USD"
+                    )
                 )
                 .keyboardType(.decimalPad)
             }

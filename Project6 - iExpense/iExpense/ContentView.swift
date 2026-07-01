@@ -53,13 +53,33 @@ struct ContentView: View {
                         }
 
                         Spacer()
-                        Text(
-                            item.amount,
-                            format: .currency(
-                                code: Locale.current.currency?.identifier
-                                    ?? "USD"
+
+                        var currencyCode =
+                            Locale.current.currency?.identifier ?? "USD"
+
+                        if item.amount < 10 {
+                            Text(
+                                item.amount,
+                                format: .currency(code: currencyCode)
                             )
-                        )
+                            .foregroundColor(.green)
+                            .font(.footnote)
+                        } else if item.amount < 100 {
+                            Text(
+                                item.amount,
+                                format: .currency(code: currencyCode)
+                            )
+                            .foregroundColor(.orange)
+                            .font(.headline)
+                        } else {
+                            Text(
+                                item.amount,
+                                format: .currency(code: currencyCode)
+                            )
+                            .foregroundColor(.red)
+                            .font(.title3)
+                            .bold()
+                        }
                     }
                 }.onDelete(perform: removeItems)
             }

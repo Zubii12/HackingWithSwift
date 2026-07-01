@@ -54,7 +54,7 @@ struct ContentView: View {
 
                         Spacer()
 
-                        var currencyCode =
+                        let currencyCode =
                             Locale.current.currency?.identifier ?? "USD"
 
                         if item.amount < 10 {

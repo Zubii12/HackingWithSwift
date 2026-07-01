@@ -45,6 +45,13 @@ struct MissionView: View {
                     .foregroundStyle(.lightBackground)
                     .padding(.vertical)
 
+                Text(mission.formattedLaunchDateLong)
+
+                Rectangle()
+                    .frame(height: 2)
+                    .foregroundStyle(.lightBackground)
+                    .padding(.vertical)
+
                 VStack(alignment: .leading) {
                     Text("Mission Highlights")
                         .font(.title.bold())

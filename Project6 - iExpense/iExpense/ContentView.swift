@@ -37,51 +37,52 @@ struct ContentView: View {
 
     @State private var showingAddExpense = false
 
-    func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+    var personalItems: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Personal" }
+    }
+
+    var businessItems: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Business" }
+    }
+
+    func removePersonalItems(at offsets: IndexSet) {
+        let itemsToDelete = offsets.map { personalItems[$0] }
+
+        for item in itemsToDelete {
+            if let index = expenses.items.firstIndex(where: { $0.id == item.id }
+            ) {
+                expenses.items.remove(at: index)
+            }
+        }
+    }
+
+    func removeBusinessItems(at offsets: IndexSet) {
+        let itemsToDelete = offsets.map { businessItems[$0] }
+
+        for item in itemsToDelete {
+            if let index = expenses.items.firstIndex(where: { $0.id == item.id }
+            ) {
+                expenses.items.remove(at: index)
+            }
+        }
     }
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
-                        }
+                Section("Personal") {
+                    ForEach(personalItems) { item in
+                        ExpenseItemView(item: item)
+                    }.onDelete(perform: removePersonalItems)
+                }
+                .foregroundStyle(.black)
 
-                        Spacer()
-
-                        let currencyCode =
-                            Locale.current.currency?.identifier ?? "USD"
-
-                        if item.amount < 10 {
-                            Text(
-                                item.amount,
-                                format: .currency(code: currencyCode)
-                            )
-                            .foregroundColor(.green)
-                            .font(.footnote)
-                        } else if item.amount < 100 {
-                            Text(
-                                item.amount,
-                                format: .currency(code: currencyCode)
-                            )
-                            .foregroundColor(.orange)
-                            .font(.headline)
-                        } else {
-                            Text(
-                                item.amount,
-                                format: .currency(code: currencyCode)
-                            )
-                            .foregroundColor(.red)
-                            .font(.title3)
-                            .bold()
-                        }
-                    }
-                }.onDelete(perform: removeItems)
+                Section("Business") {
+                    ForEach(businessItems) { item in
+                        ExpenseItemView(item: item)
+                    }.onDelete(perform: removeBusinessItems)
+                }
+                .foregroundStyle(.black)
             }
             .navigationTitle("iExpense")
             .toolbar {
